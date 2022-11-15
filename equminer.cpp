@@ -168,6 +168,7 @@ void Equminer::case_compare(){
         in_file2.close();
         //cout<<endl;
 
+
         //compare
         if(res1.size() != res2.size()){
             output->set_result(0);
@@ -220,7 +221,7 @@ void generate_input(){
                 curfile_relative_path = "input/" + curdir_name + "/" + curfile_name;
                 Input* curInput = new Input(curfile_name,curfile_absolute_path,curfile_relative_path,curdir_path);
                 input_vec.push_back(curInput);
-                //cout<<curfile_name<<' '<<curfile_absolute_path<<' '<<curfile_relative_path<<endl;
+                cout<<"Read file: "<<curfile_name<<' '<<curfile_absolute_path<<' '<<curfile_relative_path<<endl;
             }  
         }
         closedir(curdir_dir);
@@ -317,7 +318,7 @@ void generate_stdin_format(){
             else{
                 cout<<"Error in stdin_format.txt!"<<endl;
             }
-            //cout<<t<<' '<<l<<' '<<r<<endl;
+            cout<<"Read file /stdin_format.txt : "<<t<<' '<<l<<' '<<r<<endl;
         }
     }
     in_file.close();
@@ -388,7 +389,7 @@ int main(){
 
                 //generate Equminer and Output objects
                 //then compare each Input object, get results
-                equminer_test();
+                //equminer_test();
 
                 //empty input and stdin vector, for next directory
                 input_vec.clear();
@@ -399,6 +400,6 @@ int main(){
     }
 
     //output results
-    output_csv();
+    //output_csv();
     return 0;
 }
