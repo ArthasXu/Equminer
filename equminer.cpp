@@ -108,15 +108,15 @@ void Equminer::case_compare(){
 
         //a group of randomly generated samples
         for(int j = 0;j<stf.size();++j){
-            out_file << random_case(j) << ' ';
-            //cout<<random_case(j)<<' ';
+            //out_file << random_case(j) << ' ';
+            cout<<random_case(j)<<' ';
         }
-        out_file<<endl;
+        //out_file<<endl;
         out_file.close();
 
         //run random tests above with a.out and b.out,then compare results
         //a.out <input.txt >ouput.txt #在a.out所在目录下执行该命令
-        char runner1[1001] = "./a.out <";
+        /*char runner1[1001] = "./a.out <";
         strcat(runner1,inputfile_path.c_str());
         strcat(runner1," >");
         strcat(runner1,outputfile_path1.c_str());
@@ -181,11 +181,11 @@ void Equminer::case_compare(){
                     return;
                 }
             }
-        }
+        }*/
     }
     //same output for ten times,then equal
     output->set_result(1);
-    //cout<<endl;
+    cout<<endl;
 }
 
 //vector
@@ -221,7 +221,7 @@ void generate_input(){
                 curfile_relative_path = "input/" + curdir_name + "/" + curfile_name;
                 Input* curInput = new Input(curfile_name,curfile_absolute_path,curfile_relative_path,curdir_path);
                 input_vec.push_back(curInput);
-                cout<<"Read file: "<<curfile_name<<' '<<curfile_absolute_path<<' '<<curfile_relative_path<<endl;
+                //cout<<"Read file: "<<curfile_name<<' '<<curfile_absolute_path<<' '<<curfile_relative_path<<endl;
             }  
         }
         closedir(curdir_dir);
@@ -318,7 +318,7 @@ void generate_stdin_format(){
             else{
                 cout<<"Error in stdin_format.txt!"<<endl;
             }
-            cout<<"Read file /stdin_format.txt : "<<t<<' '<<l<<' '<<r<<endl;
+            //cout<<"Read file /stdin_format.txt : "<<t<<' '<<l<<' '<<r<<endl;
         }
     }
     in_file.close();
@@ -389,7 +389,7 @@ int main(){
 
                 //generate Equminer and Output objects
                 //then compare each Input object, get results
-                //equminer_test();
+                equminer_test();
 
                 //empty input and stdin vector, for next directory
                 input_vec.clear();
