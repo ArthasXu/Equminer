@@ -145,7 +145,7 @@ void Equminer::case_compare(){
             while(in_file1>>buffer){
                 string buf = buffer;
                 res1.push_back(buf);
-                cout<<buf<<' ';
+                //cout<<buf<<' ';
             }
         }
         in_file1.close();
@@ -162,14 +162,14 @@ void Equminer::case_compare(){
             while(in_file2>>buffer){
                 string buf = buffer;
                 res2.push_back(buf);
-                cout<<buf<<' ';
+                //cout<<buf<<' ';
             }
         }
         in_file2.close();
         //cout<<endl;
 
 
-        /*//compare
+        //compare
         if(res1.size() != res2.size()){
             output->set_result(0);
             return;
@@ -181,7 +181,7 @@ void Equminer::case_compare(){
                     return;
                 }
             }
-        }*/
+        }
     }
     //same output for ten times,then equal
     output->set_result(1);
@@ -356,10 +356,12 @@ void output_csv(){
         if(output_vec[i]->get_result() == 0){
             //inequal
             out_file_inequal<<output_vec[i]->get_input1()->get_relative_path_to_INPUT()<<','<<output_vec[i]->get_input2()->get_relative_path_to_INPUT()<<endl;
+            cout<<"inequal: "<<output_vec[i]->get_input1()->get_relative_path_to_INPUT()<<','<<output_vec[i]->get_input2()->get_relative_path_to_INPUT()<<endl;
         }
         else if(output_vec[i]->get_result() == 1){
             //equal
             out_file_equal<<output_vec[i]->get_input1()->get_relative_path_to_INPUT()<<','<<output_vec[i]->get_input2()->get_relative_path_to_INPUT()<<endl;
+            cout<<"equal: "<<output_vec[i]->get_input1()->get_relative_path_to_INPUT()<<','<<output_vec[i]->get_input2()->get_relative_path_to_INPUT()<<endl;
         }
     }
 
@@ -400,6 +402,6 @@ int main(){
     }
 
     //output results
-    //output_csv();
+    output_csv();
     return 0;
 }
