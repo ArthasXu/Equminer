@@ -108,15 +108,15 @@ void Equminer::case_compare(){
 
         //a group of randomly generated samples
         for(int j = 0;j<stf.size();++j){
-            //out_file << random_case(j) << ' ';
-            cout<<random_case(j)<<' ';
+            out_file << random_case(j) << ' ';
+            //cout<<random_case(j)<<' ';
         }
-        //out_file<<endl;
+        out_file<<endl;
         out_file.close();
 
         //run random tests above with a.out and b.out,then compare results
         //a.out <input.txt >ouput.txt #在a.out所在目录下执行该命令
-        /*char runner1[1001] = "./a.out <";
+        char runner1[1001] = "./a.out <";
         strcat(runner1,inputfile_path.c_str());
         strcat(runner1," >");
         strcat(runner1,outputfile_path1.c_str());
@@ -145,7 +145,7 @@ void Equminer::case_compare(){
             while(in_file1>>buffer){
                 string buf = buffer;
                 res1.push_back(buf);
-                //cout<<buf<<' ';
+                cout<<buf<<' ';
             }
         }
         in_file1.close();
@@ -162,14 +162,14 @@ void Equminer::case_compare(){
             while(in_file2>>buffer){
                 string buf = buffer;
                 res2.push_back(buf);
-                //cout<<buf<<' ';
+                cout<<buf<<' ';
             }
         }
         in_file2.close();
         //cout<<endl;
 
 
-        //compare
+        /*//compare
         if(res1.size() != res2.size()){
             output->set_result(0);
             return;
